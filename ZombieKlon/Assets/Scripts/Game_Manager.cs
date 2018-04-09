@@ -25,6 +25,9 @@ public class Game_Manager : MonoBehaviour {
 	
     void spawnPlayers()
     {
+        //Set spawnZone
+        //Get nodes pos for players spawnPos
+
         player = new Player[playerPrefab.Length];
         for (int i = 0; i < playerPrefab.Length; i++)
         {
@@ -32,6 +35,7 @@ public class Game_Manager : MonoBehaviour {
             player[i] = p.GetComponent<Player>();
         }
         cameraOrbit.target = player[playerTurn].gameObject;
+        player[playerTurn].isActive = true;
     }
 	
 	void Update () {
@@ -45,15 +49,18 @@ public class Game_Manager : MonoBehaviour {
     public void move(Vector3 pos)
     {
         player[playerTurn].moveToPos(pos);    
+        //action--;
     }
 
     void changeTurn()
     {
+        player[playerTurn].isActive = false;
         player[playerTurn].actions = player[playerTurn].maxActions;
 
-        if(playerTurn == playerPrefab.Length - 1) { playerTurn = 0; }
+        if(playerTurn == playerPrefab.Length - 1) { playerTurn = 0; print("Zombie move!"); }
         else { playerTurn++; }
-        cameraOrbit.target = player[playerTurn].gameObject;   
+        cameraOrbit.target = player[playerTurn].gameObject;
+        player[playerTurn].isActive = true;
     }
 
     public void zombieTurn() {
@@ -114,5 +121,12 @@ public class Game_Manager : MonoBehaviour {
         //canMove = true;
         Debug.Log("Move!");
         panel.SetActive(false);
+
+        //Update this so it only finds the zones near by and not all
+        GameObject[] zones = GameObject.FindGameObjectsWithTag("Zone");
+        foreach(GameObject item in zones)
+        {
+            item.GetComponent<MeshRenderer>().enabled = true;
+        }
     }
 }

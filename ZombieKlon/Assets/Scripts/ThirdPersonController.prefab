@@ -881,7 +881,6 @@ GameObject:
   - component: {fileID: 114081330736642972}
   - component: {fileID: 114890795326596750}
   - component: {fileID: 195526794432089778}
-  - component: {fileID: 114206473375567808}
   - component: {fileID: 114983158240133712}
   m_Layer: 0
   m_Name: ThirdPersonController
@@ -2499,19 +2498,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521b611700410be45810047f0a74e899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114206473375567808
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1671764046695500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86d7d1c9228ba544fa396cecbe108636, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  agent: {fileID: 195526794432089778}
 --- !u!114 &114890795326596750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2542,9 +2528,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e34587f16acb445917fb4d6b93eafb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
+  agent: {fileID: 195526794432089778}
   actions: 3
   maxActions: 3
+  isActive: 0
 --- !u!136 &136109403028745938
 CapsuleCollider:
   m_ObjectHideFlags: 1

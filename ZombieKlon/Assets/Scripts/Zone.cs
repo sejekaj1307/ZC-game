@@ -71,5 +71,9 @@ public class Zone : MonoBehaviour {
         //Request node
         //game_manager.move();
         //Inden i parentesen skal der være en Vector3 med den frie notes position
+        
+        //Disable all zones MeshRendere (so they are hidden again)
+
+        print(transform.name);
     }
 }

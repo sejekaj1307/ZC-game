@@ -9,6 +9,7 @@ TagManager:
   - Fatty
   - Abomination
   - Zombie
+  - Zone
   layers:
   - Default
   - TransparentFX
